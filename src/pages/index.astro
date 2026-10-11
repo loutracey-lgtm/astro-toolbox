@@ -1,70 +1,87 @@
 ---
 import Layout from '../components/Layout.astro';
-import FeedbackForm from '../components/FeedbackForm.astro';
+
+// Used by every "book a class" button on the page
+const bookingUrl = 'https://vidabook.com/loutracey.yoga';
+const instagramUrl = 'https://www.instagram.com/loutracey.yoga/';
+const year = new Date().getFullYear();
 ---
 
-<Layout title="Astro Toolbox">
+<Layout>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark hand" href="/">lou tracey yoga</a>
+      <a class="btn btn--small" href={bookingUrl} target="_blank" rel="noopener">book a class</a>
+    </div>
+  </header>
+
   <main>
-    <div class="header">
-      <div class="logo">
-        <img
-          src="https://user-images.githubusercontent.com/43764894/223557634-f62606c5-bdf9-476c-9264-0d3728189962.png"
-          alt="Netlify and Astro.js logos"
-        />
+    <div class="hero">
+      <div class="wrap">
+        <div>
+          <h1 class="hand">lou tracey yoga</h1>
+          <p class="lede">Classes, events and retreats. Come along, roll out a mat and breathe.</p>
+          <a class="btn" href={bookingUrl} target="_blank" rel="noopener">book a class <span aria-hidden="true">→</span></a>
+          <p class="note">More info about classes, events and retreats is on its way, so check back soon.</p>
+        </div>
+
+        <div class="art">
+          <div class="wash" aria-hidden="true"></div>
+          <svg class="ring" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="#C9A24A" stroke-width=".6" stroke-linecap="round">
+            <path d="M2 86 C -2 74, 8 66, 16 72 S 18 94, 8 96 S 4 92, 2 86 Z" opacity=".9"/>
+            <path d="M80 10 C 86 4, 96 8, 94 16 S 84 24, 80 18" opacity=".7"/>
+          </svg>
+          <img
+            src="/img/lou-illustration-800.png"
+            srcset="/img/lou-illustration-800.png 800w, /img/lou-illustration-1600.png 1600w"
+            sizes="(max-width: 820px) 340px, 520px"
+            width="800" height="800"
+            alt="Line drawing of two yoga poses: one figure kneeling with hands at heart centre, the other in a headstand variation.">
+        </div>
       </div>
     </div>
-    <div class="intro">
-      <p>
-        Hi 👋! This template gives you an
-        <a href="https://astro.build/">Astro</a> app with the scaffolding for
-        <a href="https://ntl.fyi/3upc4Qo">Netlify Functions</a>, <a
-          href="https://ntl.fyi/3bICRk6">Forms</a
-        >, and
-        <a href="https://ntl.fyi/3PcY8RH">Redirects</a>. Our aim was to give you
-        the code you would need to hit the ground running with a few fun
-        features.
-      </p>
 
-      <p>
-        You can find the code for this project on GitHub at
-        <a href="https://github.com/netlify-templates/astro-toolbox"
-          >https://github.com/netlify-templates/astro-toolbox</a
-        >! Happy coding!
-      </p>
-    </div>
-    <FeedbackForm />
-    <a class="jokes-link" href="/api/joke">
-      <h3>Click here for function-loaded jokes!</h3>
-    </a>
+    <section class="offerings" id="offerings">
+      <div class="wrap">
+        <h2 class="section-title hand">what's on</h2>
+        <p class="section-sub">Classes are booking now. Events and retreats are in the works.</p>
+        <div class="cards">
+          <article class="card">
+            <span class="tag tag--live">booking now</span>
+            <h3 class="hand">classes</h3>
+            <p>See the current timetable and reserve your spot online.</p>
+            <a class="inline" href={bookingUrl} target="_blank" rel="noopener">View &amp; book classes →</a>
+          </article>
+          <article class="card">
+            <span class="tag">coming soon</span>
+            <h3 class="hand">events</h3>
+            <p>Workshops and special sessions. Details will be posted here.</p>
+          </article>
+          <article class="card">
+            <span class="tag">coming soon</span>
+            <h3 class="hand">retreats</h3>
+            <p>Time away to slow down and practise. Dates to be announced.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap">
+        <h2 class="section-title hand">see you on the mat</h2>
+        <p>Have a look at the timetable and book your spot online.</p>
+        <a class="btn" href={bookingUrl} target="_blank" rel="noopener">book a class <span aria-hidden="true">→</span></a>
+        <p class="follow">or follow along on <a class="ig" href={instagramUrl} target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@loutracey.yoga</a></p>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© {year} Lou Tracey Yoga</span>
+      <a class="ig" href={instagramUrl} target="_blank" rel="noopener" aria-label="Lou Tracey Yoga on Instagram"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@loutracey.yoga</a>
+    </div>
+  </footer>
+
+  
 </Layout>
-
-<style>
-  .logo img {
-    padding: 30px 0;
-    width: 100%;
-  }
-
-  main {
-    padding: 2rem 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 auto;
-    max-width: 60ch;
-    align-items: center;
-  }
-
-  footer {
-    width: 100%;
-    height: 100px;
-    border-top: 1px solid #eaeaea;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  footer img {
-    width: 20px;
-  }
-</style>
